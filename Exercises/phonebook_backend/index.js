@@ -44,11 +44,18 @@ app.get('/api/persons/:id', (req, res) => {
     }
 })
 
+app.delete('/api/persons/:id', (req, res)=> {
+    const id = Number(req.params.id)
+    persons = persons.filter(person => person.id !== id)
+    res.status(204).end()
+    
+})
 app.get('/info', (req, res) => {
     res.send(`<p>Phonebook has info for ${persons.length} people</p>
               <p>${Date()}</p>`)
 
 })
+
 
 const PORT = 3001
 app.listen(PORT, () => {
