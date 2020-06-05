@@ -60,7 +60,7 @@ let notes = [
         const body = req.body
 
         if (!body.content) {
-            return response.status(400).json({
+            return res.status(400).json({
                 error: 'content missing'
             })
         }
@@ -73,7 +73,7 @@ let notes = [
         }
 
         notes = notes.concat(note)
-        response.json(note)
+        res.json(note)
     })
     const PORT = 3001
     app.listen(PORT, () => {
